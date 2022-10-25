@@ -1,8 +1,7 @@
-from pyswip import Prolog
+from Manager import Manager
 
-prolog = Prolog()
-
-prolog.consult("laberint.pl")
-
-c = bool(list(prolog.query("gato(pena)")))
-print(c)
+if __name__ == "__main__":
+    print("Laberinto iniciando....")
+    app = Manager()
+    app.mainloop()
+    print("Laberinto cerrandoce")

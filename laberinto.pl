@@ -8,6 +8,7 @@ readFile_Caller(Lines):-
 %Funcion de apoyo a la funncion de readFile_Caller.
 read_file(Stream,[]) :-
     at_end_of_stream(Stream).
+
 %Funcion de apoyo a la funncion de readFile_Caller.
 read_file(Stream,[X|L]) :-
     \+ at_end_of_stream(Stream),
