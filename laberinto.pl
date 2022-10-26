@@ -13,9 +13,10 @@ de un alberinto con los datos necesarios para su finalizacion
  *
  * Encargada de leer archivos de texto.
  */
-readFile_Caller(Lines):-
+readFile_Caller():-
     open('D:/trabajis/Lenguajes/proyecto3/myFile.txt', read, Str),
     read_file(Str,Lines),
+    assert(archivo(Lines)),
     close(Str).
     %write(Lines), nl; 
     

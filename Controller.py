@@ -24,6 +24,7 @@ class Controler():
     
     def get_matrix(self):
         self.prolog.consult("laberinto.pl")
-        c = list(self.prolog.query("readFile_Caller(Lines)"))=={'Lines': []}
+        c = bool(list(self.prolog.query("readFile_Caller()")))
+        # c = bool(list(self.prolog.query("hola(adios)")))
         return c
         
