@@ -33,14 +33,17 @@ class Manager(tk.Tk):
             expand=True
         )
         self.container.configure(
-            background=styles.BACKGROUND
+            background=styles.BACKGROUND,
+            height=styles.HEIGHT,
+            width=styles.WIDTH
         )
+        self.geometry("900x700")
         self.container.grid_columnconfigure(0, weight=1)
         self.container.grid_rowconfigure(0, weight=1)
         self.frame = {}
         pantallas = (Laberinto, )
         for F in pantallas:
-            frame = F(self.container, self)
+            frame = F(self.container, self, self.controler)
             self.frame[F] = frame
             frame.grid(row=0, column=0, sticky=tk.NSEW)
 

@@ -20,5 +20,10 @@ class Controler():
         Inicializa el objeto de tipo Controler.
         """
         self.prolog = Prolog()
+        # self.prolog.consult("laberinto.pl")
+    
+    def get_matrix(self):
         self.prolog.consult("laberinto.pl")
+        c = list(self.prolog.query("readFile_Caller(Lines)"))=={'Lines': []}
+        return c
         

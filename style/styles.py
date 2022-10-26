@@ -1,3 +1,4 @@
+from statistics import geometric_mean
 import tkinter as tk
 
 
@@ -5,6 +6,8 @@ BACKGROUND= "#121212"
 COMPONENT= "#363636"
 TEXT= "#84C9FB"
 FONT= ("Arial", 16)
+HEIGHT= 500
+WIDTH= 900
 
 STYLE = {
     "bg": COMPONENT,
@@ -17,5 +20,5 @@ PACK = {
     "fill": tk.BOTH,
     "expand": True,
     "padx": 22,
-    "pady": 11
+    "pady": 11,
 }

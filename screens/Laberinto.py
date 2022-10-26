@@ -10,7 +10,7 @@ class Laberinto(tk.Frame):
     Attributes:
         manager (str): Instancia para controlar la ventana
     """
-    def __init__(self, parent, manager):
+    def __init__(self, parent, manager, controler):
         """
         Inicializa el objeto de tipo Laberinto.
 
@@ -20,7 +20,9 @@ class Laberinto(tk.Frame):
         """
 
         super().__init__(parent)
+        self.controler = controler
         self.manager = manager
+        self.configure(background=styles.BACKGROUND)
         self.init_widgets()
     
     def init_widgets(self):
@@ -31,11 +33,16 @@ class Laberinto(tk.Frame):
             self (Laberinto): Ventana actual
         """
 
-        tk.Label(
-            self,
-            text="Crea o realiza tests",
-            justify=tk.CENTER,
-            **styles.STYLE
-        ).pack(
-            **styles.PACK
-        )
+        self.create_matrix(tk.Frame(self))
+        # tk.Label(
+        #     self,
+        #     text="Crea o realiza tests",
+        #     justify=tk.CENTER,
+        #     **styles.STYLE
+        # ).pack(
+        #     **styles.PACK
+        # )
+
+    def create_matrix(self, frame):
+        print("Prolog devuelve...")
+        print(self.controler.get_matrix())

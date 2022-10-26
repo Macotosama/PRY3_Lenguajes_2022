@@ -14,7 +14,7 @@ de un alberinto con los datos necesarios para su finalizacion
  * Encargada de leer archivos de texto.
  */
 readFile_Caller(Lines):-
-    open('C:/Users/Usuario/Desktop/pry03/myFile.txt', read, Str),
+    open('D:/trabajis/Lenguajes/proyecto3/myFile.txt', read, Str),
     read_file(Str,Lines),
     close(Str).
     %write(Lines), nl; 
