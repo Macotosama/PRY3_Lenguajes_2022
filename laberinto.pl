@@ -29,10 +29,32 @@ read_file(Stream,[X|L]) :-
     read(Stream,X),
     read_file(Stream,L).
 
+/**
+*Funcion encargada de evaluar el movimiento especifico inter 
+*Entradas:Dos strings
+*
+ */
+evaluarCosoAUX(Y,RespuestaMovimiento):-
+    ConstanteMovimiento = 'inter',
+    (Y=:=ConstanteMovimiento)->RespuestaMovimiento is 1;
+    RespuestaMovimiento is 0.
+/**
+*
+*Funcion encargada de evaluar el caso y el movimiento especifico es un movimiento legal que no sea inter
+*Entradas:Dos strings
+ */
+evaluarCaso(Y,Movimiento):-
+    (Y=:=Movimiento)->RespuestaMovimiento is 1;
+    RespuestaMovimiento is 0,
+    evaluarCosoAUX(Y,RespuestaMovimiento).
+/**
+ * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
+ * Entradas: Filas, columnas, una matriz, el comando de movimiento(debe concidir con los siguientes: ar, ad, ab, at, inter)
 
-%Funcion encargada de encontrar el elemento que se esta solicitando en la lista y guardarlo.
-evaluarElementoEnposicion(Fila,Columna,Matriz,Movimiento):-
-nth0(Columnas,Matriz,X),
-nth0(Filas,X,Y).
-
+ */
+optenerElmentoEnPosicion(Fila,Columna,Matriz,Movimiento):-
+    nth0(Columnas,Matriz,X),
+    nth0(Filas,X,Y),
+    evaluarCaso(Y,Movimiento).
+%Se debe evaluar que el movimiento resultante y el que se deseo ingresar sean correspondientes. 
  
