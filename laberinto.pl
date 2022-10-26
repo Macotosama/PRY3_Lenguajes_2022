@@ -36,7 +36,7 @@ read_file(Stream,[X|L]) :-
 *
  */
 evaluarCosoAUX(Y,RespuestaMovimiento):-
-    ConstanteMovimiento = 'inter',
+    ConstanteMovimiento is 2,
     (Y=:=ConstanteMovimiento)->RespuestaMovimiento is 1;
     RespuestaMovimiento is 0.
 /**
@@ -45,8 +45,9 @@ evaluarCosoAUX(Y,RespuestaMovimiento):-
 *Entradas:Dos strings
  */
 evaluarCaso(Y,Movimiento):-
-    (Y=:=Movimiento)->RespuestaMovimiento is 1;
-    RespuestaMovimiento is 0,
+    (Y=:=Movimiento)->RespuestaMovimiento is 1,
+    /**
+*RespuestaMovimiento is 0, */
     evaluarCosoAUX(Y,RespuestaMovimiento).
 /**
  * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
