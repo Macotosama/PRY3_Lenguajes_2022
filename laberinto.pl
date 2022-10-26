@@ -8,6 +8,8 @@ de un alberinto con los datos necesarios para su finalizacion
 @license GPL
 */
 
+hola(puta).
+
 /**
  * readFile_Caller(Lines:string) is nondet
  *

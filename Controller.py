@@ -1,4 +1,5 @@
 """Módulo Main"""
+from xml.etree.ElementTree import tostring, tostringlist
 from pyswip import Prolog
 
 # prolog = Prolog()
@@ -24,7 +25,11 @@ class Controler():
     
     def get_matrix(self):
         self.prolog.consult("laberinto.pl")
-        c = bool(list(self.prolog.query("readFile_Caller()")))
-        # c = bool(list(self.prolog.query("hola(adios)")))
+        self.prolog.query("readFile_Caller()")
+        # c = list(self.prolog.query("hola(What)"))
+        # c = list(self.prolog.query("archivo(What)"))
+        lista = [[9,2,4],[5,6,8]]
+        c = bool(list(self.prolog.query("optenerElmentoEnPosicion(0,1,"+ str(lista) +",2)")))
+        print(c)
         return c
         
