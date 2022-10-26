@@ -1,3 +1,4 @@
+"""Módulo Main"""
 import tkinter as tk
 from typing import Container
 from Controller import Controler
@@ -5,7 +6,23 @@ from screens.Laberinto import Laberinto
 from style import styles
 
 class Manager(tk.Tk):
+    """
+    Encargado de controlar la interfaz grafica.
+
+    Attributes:
+        title (str): Titulo de la aplicacion
+        controler (Controler): Comunicacion con la logica de prolog
+        container (Frame): Frame principal de la aplicacion, contiene toda la interfaz
+    """
     def __init__(self, *args, **kwargs):
+        """
+        Inicializa el objeto de tipo Manager.
+
+        Args:
+            *args (tupla): Argumentos iniciadores del programa
+            **kwargs (tupla): Argumentos iniciadores del programa
+        """
+
         super().__init__(*args, **kwargs)
         self.title("Laberinto")
         self.controler = Controler()
@@ -28,5 +45,12 @@ class Manager(tk.Tk):
             frame.grid(row=0, column=0, sticky=tk.NSEW)
 
     def show_frame(self, container):
-        frame = self.frames[self.container]
+        """
+        Muestra el frame.
+
+        Args:
+            self (Manager): Contenedor actual
+            container (Laberinto): Ventana actual
+        """
+        frame = self.frames[container]
         frame.tkraise()
