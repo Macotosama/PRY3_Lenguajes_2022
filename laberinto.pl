@@ -1,4 +1,18 @@
-%Funcion encargada de leer archivos de texto.
+/** <Main> Prolog documentation processor
+
+Este modulo se encarga de la carga de informacion del text y posterior creacion
+de un alberinto con los datos necesarios para su finalizacion
+
+@author Josue Torres N
+@author Tim Scarlith G
+@license GPL
+*/
+
+/**
+ * readFile_Caller(Lines:string) is nondet
+ *
+ * Encargada de leer archivos de texto.
+ */
 readFile_Caller(Lines):-
     open('C:/Users/Usuario/Desktop/pry03/myFile.txt', read, Str),
     read_file(Str,Lines),
