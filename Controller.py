@@ -28,8 +28,9 @@ class Controler():
     def get_matrix(self):
         self.prolog.consult("laberinto.pl")
         archivoTemp = Archivos()
-        self.matriz = archivoTemp.abrirArchivo("D:/trabajis/Lenguajes/proyecto3/myFile.txt")
-        print(self.matriz)
+        # self.matriz = archivoTemp.abrirArchivo("D:/trabajis/Lenguajes/proyecto3/myFile.txt")
+        a = archivoTemp.leer_archivo("D:/trabajis/Lenguajes/proyecto3/myFile.txt")
+        print(a)
         # self.prolog.query("readFile_Caller()")
         # c = list(self.prolog.query("hola(What)"))
         # c = list(self.prolog.query("archivo(What)"))
