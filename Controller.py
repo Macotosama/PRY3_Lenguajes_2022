@@ -1,6 +1,7 @@
 """Módulo Main"""
 from xml.etree.ElementTree import tostring, tostringlist
 from pyswip import Prolog
+from components.archivos import Archivos
 
 # prolog = Prolog()
 
@@ -21,11 +22,15 @@ class Controler():
         Inicializa el objeto de tipo Controler.
         """
         self.prolog = Prolog()
+        self.matriz = []
         # self.prolog.consult("laberinto.pl")
     
     def get_matrix(self):
         self.prolog.consult("laberinto.pl")
-        self.prolog.query("readFile_Caller()")
+        archivoTemp = Archivos()
+        self.matriz = archivoTemp.abrirArchivo("D:/trabajis/Lenguajes/proyecto3/myFile.txt")
+        print(self.matriz)
+        # self.prolog.query("readFile_Caller()")
         # c = list(self.prolog.query("hola(What)"))
         # c = list(self.prolog.query("archivo(What)"))
         lista = [[9,2,4],[5,6,8]]
