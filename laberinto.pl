@@ -8,29 +8,27 @@ de un alberinto con los datos necesarios para su finalizacion
 @license GPL
 */
 
-hola(puta).
-
 /**
  * readFile_Caller(Lines:string) is nondet
  *
  * Encargada de leer archivos de texto.
  */
-readFile_Caller():-
-    open('D:/trabajis/Lenguajes/proyecto3/myFile.txt', read, Str),
-    read_file(Str,Lines),
-    assert(archivo(Lines)),
-    close(Str).
-    %write(Lines), nl; 
+% readFile_Caller():-
+%     open('D:/trabajis/Lenguajes/proyecto3/myFile.txt', read, Str),
+%     read_file(Str,Lines),
+%     assert(archivo(Lines)),
+%     close(Str).
+%     %write(Lines), nl; 
     
 %Funcion de apoyo a la funncion de readFile_Caller.
-read_file(Stream,[]) :-
-    at_end_of_stream(Stream).
+% read_file(Stream,[]) :-
+%     at_end_of_stream(Stream).
 
 %Funcion de apoyo a la funncion de readFile_Caller.
-read_file(Stream,[X|L]) :-
-    \+ at_end_of_stream(Stream),
-    read(Stream,X),
-    read_file(Stream,L).
+% read_file(Stream,[X|L]) :-
+%     \+ at_end_of_stream(Stream),
+%     read(Stream,X),
+%     read_file(Stream,L).
 
 /**
 *Funcion encargada de evaluar el movimiento especifico inter 
