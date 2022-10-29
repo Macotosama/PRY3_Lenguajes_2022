@@ -9,18 +9,18 @@ de un alberinto con los datos necesarios para su finalizacion
 */
 
 
-movimiento(inter, up)
-movimiento(inter, down)
-movimiento(inter, left)
-movimiento(inter, right)
+movimiento(inter, up).
+movimiento(inter, down).
+movimiento(inter, left).
+movimiento(inter, right).
 
-movimiento(ar, up)
+movimiento(ar, up).
 
-movimiento(ad, right)
+movimiento(ad, right).
 
-movimiento(ab, down)
+movimiento(ab, down).
 
-movimiento(at, left)
+movimiento(at, left).
 
 /**
 *Funcion encargada de evaluar el movimiento especifico inter 
@@ -38,7 +38,8 @@ evaluarCosoAUX(Y,RespuestaMovimiento):-
  */
 
 evaluarCaso(Y,Movimiento):-
-    movimiento(Y, Movimiento).
+    movimiento(Y, Movimiento)->RespuestaMovimiento is 1;
+    RespuestaMovimiento is 0.
     %(Y=:=Movimiento)->RespuestaMovimiento is 1,
     /**
 *RespuestaMovimiento is 0, */

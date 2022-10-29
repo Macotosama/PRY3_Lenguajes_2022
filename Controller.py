@@ -41,4 +41,4 @@ class Controler():
         return c
         
     def realizar_movimiento(self):
-        bool(list(self.prolog.query("optenerElmentoEnPosicion(0,1,"+ str(self.matriz) +", inter)")))
+        return bool(list(self.prolog.query("optenerElmentoEnPosicion(0,1,"+ str(self.matriz) +", up)")))
