@@ -38,7 +38,7 @@ read_file(Stream,[X|L]) :-
 *
  */
 evaluarCosoAUX(Y,RespuestaMovimiento):-
-    ConstanteMovimiento is 2,
+    ConstanteMovimiento is 'inter',
     (Y=:=ConstanteMovimiento)->RespuestaMovimiento is 1;
     RespuestaMovimiento is 0.
 /**
