@@ -1,7 +1,4 @@
 
-from tokenize import String
-
-
 class Archivos:
     def __init__(self) -> None:
         pass
@@ -12,9 +9,9 @@ class Archivos:
     def abrir_archivo(self, ruta):
         archivo = open(ruta, 'r')
         msg = archivo.read()
-        self.string_matriz(msg)
+        matriz = self.string_matriz(msg)
         archivo.close()
-        return "hola"
+        return matriz
 
     def string_matriz(self, archivo):
         newlist = self.limpiar_lista(self.string_split(archivo, "."))
@@ -23,7 +20,7 @@ class Archivos:
         newlist = self.recorre_split(newlist, ']')
         newlist = self.recorre_split_final(newlist, ',')
         # splitPunto = archivo.split("/n")
-        print (newlist)
+        return newlist
 
     def recorre_split_final(self, archivo, token):
         newlist = []
