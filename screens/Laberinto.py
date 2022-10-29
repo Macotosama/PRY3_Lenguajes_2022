@@ -46,3 +46,4 @@ class Laberinto(tk.Frame):
     def create_matrix(self, frame):
         print("Prolog devuelve...")
         print(self.controler.get_matrix())
+    

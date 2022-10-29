@@ -28,14 +28,17 @@ class Controler():
     def get_matrix(self):
         self.prolog.consult("laberinto.pl")
         archivoTemp = Archivos()
-        # self.matriz = archivoTemp.abrirArchivo("D:/trabajis/Lenguajes/proyecto3/myFile.txt")
-        a = archivoTemp.leer_archivo("D:/trabajis/Lenguajes/proyecto3/myFile.txt")
-        print(a)
+        self.matriz = archivoTemp.leer_archivo("D:/trabajis/Lenguajes/proyecto3/myFile.txt")
+        # a = archivoTemp.leer_archivo("D:/trabajis/Lenguajes/proyecto3/myFile.txt")
+        print(self.matriz)
         # self.prolog.query("readFile_Caller()")
         # c = list(self.prolog.query("hola(What)"))
         # c = list(self.prolog.query("archivo(What)"))
-        lista = [[9,2,4],[5,6,8]]
-        c = bool(list(self.prolog.query("optenerElmentoEnPosicion(0,1,"+ str(lista) +",2)")))
+        # lista = [[9,2,4],[5,6,8]]
+        # c = bool(list(self.prolog.query("optenerElmentoEnPosicion(0,1,"+ str(lista) +",2)")))
+        c = self.realizar_movimiento()
         print(c)
         return c
         
+    def realizar_movimiento(self):
+        bool(list(self.prolog.query("optenerElmentoEnPosicion(0,1,"+ str(self.matriz) +", inter)")))

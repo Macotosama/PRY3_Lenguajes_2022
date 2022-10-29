@@ -8,27 +8,19 @@ de un alberinto con los datos necesarios para su finalizacion
 @license GPL
 */
 
-/**
- * readFile_Caller(Lines:string) is nondet
- *
- * Encargada de leer archivos de texto.
- */
-% readFile_Caller():-
-%     open('D:/trabajis/Lenguajes/proyecto3/myFile.txt', read, Str),
-%     read_file(Str,Lines),
-%     assert(archivo(Lines)),
-%     close(Str).
-%     %write(Lines), nl; 
-    
-%Funcion de apoyo a la funncion de readFile_Caller.
-% read_file(Stream,[]) :-
-%     at_end_of_stream(Stream).
 
-%Funcion de apoyo a la funncion de readFile_Caller.
-% read_file(Stream,[X|L]) :-
-%     \+ at_end_of_stream(Stream),
-%     read(Stream,X),
-%     read_file(Stream,L).
+movimiento(inter, up)
+movimiento(inter, down)
+movimiento(inter, left)
+movimiento(inter, right)
+
+movimiento(ar, up)
+
+movimiento(ad, right)
+
+movimiento(ab, down)
+
+movimiento(at, left)
 
 /**
 *Funcion encargada de evaluar el movimiento especifico inter 
@@ -44,11 +36,13 @@ evaluarCosoAUX(Y,RespuestaMovimiento):-
 *Funcion encargada de evaluar el caso y el movimiento especifico es un movimiento legal que no sea inter
 *Entradas:Dos strings
  */
+
 evaluarCaso(Y,Movimiento):-
-    (Y=:=Movimiento)->RespuestaMovimiento is 1,
+    movimiento(Y, Movimiento).
+    %(Y=:=Movimiento)->RespuestaMovimiento is 1,
     /**
 *RespuestaMovimiento is 0, */
-    evaluarCosoAUX(Y,RespuestaMovimiento).
+    %evaluarCosoAUX(Y,RespuestaMovimiento).
 /**
  * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
  * Entradas: Filas, columnas, una matriz, el comando de movimiento(debe concidir con los siguientes: ar, ad, ab, at, inter)
