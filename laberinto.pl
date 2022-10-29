@@ -9,49 +9,38 @@ de un alberinto con los datos necesarios para su finalizacion
 */
 
 
-movimiento(inter, up).
-movimiento(inter, down).
-movimiento(inter, left).
-movimiento(inter, right).
+accionBasadaEnEstado(inter, up).
+accionBasadaEnEstado(inter, down).
+accionBasadaEnEstado(inter, left).
+accionBasadaEnEstado(inter, right).
 
-movimiento(ar, up).
+accionBasadaEnEstado(up, ar).
 
-movimiento(ad, right).
+accionBasadaEnEstado(right, ad).
 
-movimiento(ab, down).
+accionBasadaEnEstado(down, ab).
 
-movimiento(at, left).
+accionBasadaEnEstado(left, at).
 
-/**
-*Funcion encargada de evaluar el movimiento especifico inter 
-*Entradas:Dos strings
-*
- */
-evaluarCosoAUX(Y,RespuestaMovimiento):-
-    ConstanteMovimiento is 'inter',
-    (Y=:=ConstanteMovimiento)->RespuestaMovimiento is 1;
-    RespuestaMovimiento is 0.
+
 /**
 *
 *Funcion encargada de evaluar el caso y el movimiento especifico es un movimiento legal que no sea inter
 *Entradas:Dos strings
  */
 
-evaluarCaso(Y,Movimiento):-
-    movimiento(Y, Movimiento)->RespuestaMovimiento is 1;
-    RespuestaMovimiento is 0.
-    %(Y=:=Movimiento)->RespuestaMovimiento is 1,
-    /**
-*RespuestaMovimiento is 0, */
-    %evaluarCosoAUX(Y,RespuestaMovimiento).
+evaluarCaso(Y,Movimiento,RespuestaMovimiento):-
+    accionBasadaEnEstado(Y, Movimiento).%->RespuestaMovimiento is 1,
+    %RespuestaMovimiento is 0.
+
 /**
  * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
  * Entradas: Filas, columnas, una matriz, el comando de movimiento(debe concidir con los siguientes: ar, ad, ab, at, inter)
 
  */
-optenerElmentoEnPosicion(Fila,Columna,Matriz,Movimiento):-
+optenerElmentoEnPosicion(Fila,Columna,Matriz,Movimiento,RespuestaMovimiento):-
     nth0(Columnas,Matriz,X),
     nth0(Filas,X,Y),
-    evaluarCaso(Y,Movimiento).
+    evaluarCaso(Y,Movimiento,RespuestaMovimiento).
 %Se debe evaluar que el movimiento resultante y el que se deseo ingresar sean correspondientes. 
  
