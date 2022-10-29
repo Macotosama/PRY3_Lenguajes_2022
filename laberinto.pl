@@ -13,13 +13,9 @@ movimiento(inter, up).
 movimiento(inter, down).
 movimiento(inter, left).
 movimiento(inter, right).
-
 movimiento(ar, up).
-
 movimiento(ad, right).
-
 movimiento(ab, down).
-
 movimiento(at, left).
 
 /**
