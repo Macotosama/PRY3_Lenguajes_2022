@@ -9,48 +9,36 @@ de un alberinto con los datos necesarios para su finalizacion
 */
 :- style_check(-singleton).
 
-accionBasadaEnEstado('up', 'inter').
-accionBasadaEnEstado('down', 'inter').
-accionBasadaEnEstado('left', 'inter').
-accionBasadaEnEstado('right', 'inter').
 
-accionBasadaEnEstado('up', 'ar').
+estadoGanador(f).
+
+accionBasadaEnEstado(inter, up).
+accionBasadaEnEstado(inter, down).
+accionBasadaEnEstado(inter, left).
+accionBasadaEnEstado(inter, right).
+
+accionBasadaEnEstado(up, ar).
 
 
 accionBasadaEnEstado(right, ad).
 
-accionBasadaEnEstado('down', 'ab').
+accionBasadaEnEstado(down, ab).
 
-accionBasadaEnEstado('left', 'at').
+accionBasadaEnEstado(left, at).
 
 
+obtenerMatriz:-
+    globalMatriz(X).
 /**
-*contador encargado 
-*/
-contador(actual).
-
-aumentarContador:-
-    ActualVar is contador(actual),
-/**
-*
-*Funcion encargada de ingresar el nombre de la personar que esta jugando
-*Entradas: Un string
- */
-guardarNombreJugador(NombreJugador):-
-    asserta(NombreJugador(NombreJugador)).
-
-
-
-
-
-/**
-*Funcion de leer y sis aux
+*Funcion de leer 
+*Entrada: Una variable
  */
 %Funcion encargada de leer archivos de texto.
 readFile_Caller(Lines):-
-    open('C:/Users/Usuario/Desktop/pry03/myFile.txt', read, Str),
+    open('C:/Users/Usuario/Desktop/pry03/PRY3_Lenguajes_2022/myFile.txt', read, Str),
     read_file(Str,Lines),
-    close(Str).
+    close(Str),
+    asserta(globalMatriz(Lines)).
     %write(Lines), nl; 
     
 %Funcion de apoyo a la funncion de readFile_Caller.
@@ -71,36 +59,29 @@ nth0(Filas,X,Y).
  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /**
 *
 *Funcion encargada de evaluar el caso y el movimiento especifico es un movimiento legal que no sea inter
-*Entradas:Dos strings
+*Entradas:Na
  */
-
 evaluarCaso :-
     datoMovimiento(X), datoPosicion(Y), 
     accionBasadaEnEstado(X, Y).
 
-
+/**
+*Funcion encargada de evaluar si ya se llego al punto de gane 
+*Entradas:Na
+*/
+evaluargane:-
+    datoPosicion(Y),
+    estadoGanador(Y).
 /**
  * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
  * Entradas: Filas, columnas, una matriz, el comando de movimiento(debe concidir con los siguientes: ar, ad, ab, at, inter)
-
  */
-optenerElmentoEnPosicion(Filas,Columnas,Matriz,Movimiento):-
-    nth0(Columnas,Matriz,X),
+optenerElmentoEnPosicion(Filas,Columnas,Movimiento):-
+    globalMatriz(M),
+    nth0(Columnas,M,X),
     nth0(Filas,X,Y),
     retractall(datoPosicion(_)),
     retractall(datoMovimiento(_)),
