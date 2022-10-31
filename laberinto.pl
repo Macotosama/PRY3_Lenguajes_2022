@@ -7,7 +7,7 @@ de un alberinto con los datos necesarios para su finalizacion
 @author Tim Scarlith G
 @license GPL
 */
-
+:- style_check(-singleton).
 
 accionBasadaEnEstado('up', 'inter').
 accionBasadaEnEstado('down', 'inter').
@@ -16,7 +16,8 @@ accionBasadaEnEstado('right', 'inter').
 
 accionBasadaEnEstado('up', 'ar').
 
-accionBasadaEnEstado('right', 'ad').
+
+accionBasadaEnEstado(right, ad).
 
 accionBasadaEnEstado('down', 'ab').
 
@@ -29,29 +30,24 @@ accionBasadaEnEstado('left', 'at').
 *Entradas:Dos strings
  */
 
- %evaluarCaso('inter', Movimiento):- accionBasadaEnEstado(Movimiento, 'inter').
- %evaluarCaso('ar', Movimiento):- accionBasadaEnEstado(Movimiento, 'ar').
- %evaluarCaso('ad', Movimiento):- accionBasadaEnEstado(Movimiento, 'ad').
- %evaluarCaso('ab', Movimiento):- accionBasadaEnEstado(Movimiento, 'ab').
- %evaluarCaso('at', Movimiento):- accionBasadaEnEstado(Movimiento, 'at').
+evaluarCaso :-
+    datoMovimiento(X), datoPosicion(Y), 
+    accionBasadaEnEstado(X, Y).
 
-evaluarCaso(Y,Movimiento):-
-    (Y='inter')->accionBasadaEnEstado(Movimiento, 'inter');
-    (Y='ar')->accionBasadaEnEstado(Movimiento, 'ar');
-    (Y='ad')->accionBasadaEnEstado(Movimiento, 'ad');
-    (Y='ab')->accionBasadaEnEstado(Movimiento, 'ab');
-    (Y='at')->accionBasadaEnEstado(Movimiento, 'at').
-    %accionBasadaEnEstado(Y, Movimiento).%->RespuestaMovimiento is 1,
-    %RespuestaMovimiento is 0.
 
 /**
  * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
  * Entradas: Filas, columnas, una matriz, el comando de movimiento(debe concidir con los siguientes: ar, ad, ab, at, inter)
 
  */
-optenerElmentoEnPosicion(Fila,Columna,Matriz,Movimiento):-
+optenerElmentoEnPosicion(Filas,Columnas,Matriz,Movimiento):-
     nth0(Columnas,Matriz,X),
     nth0(Filas,X,Y),
-    evaluarCaso(Y,Movimiento).
-%Se debe evaluar que el movimiento resultante y el que se deseo ingresar sean correspondientes. 
- 
+    retractall(datoPosicion(_)),
+    retractall(datoMovimiento(_)),
+
+    asserta(datoPosicion(Y)),
+    asserta(datoMovimiento(Movimiento)).
+
+    
+%%Se debe evaluar que el movimiento resultante y el que se deseo ingresar sean correspondientes.
