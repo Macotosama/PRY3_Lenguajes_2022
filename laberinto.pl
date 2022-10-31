@@ -9,19 +9,19 @@ de un alberinto con los datos necesarios para su finalizacion
 */
 :- style_check(-singleton).
 
-accionBasadaEnEstado(inter, up).
-accionBasadaEnEstado(inter, down).
-accionBasadaEnEstado(inter, left).
-accionBasadaEnEstado(inter, right).
+accionBasadaEnEstado('up', 'inter').
+accionBasadaEnEstado('down', 'inter').
+accionBasadaEnEstado('left', 'inter').
+accionBasadaEnEstado('right', 'inter').
 
-accionBasadaEnEstado(up, ar).
+accionBasadaEnEstado('up', 'ar').
 
 
 accionBasadaEnEstado(right, ad).
 
-accionBasadaEnEstado(down, ab).
+accionBasadaEnEstado('down', 'ab').
 
-accionBasadaEnEstado(left, at).
+accionBasadaEnEstado('left', 'at').
 
 
 /**
