@@ -17,6 +17,10 @@ accionBasadaEnEstado(inter, down).
 accionBasadaEnEstado(inter, left).
 accionBasadaEnEstado(inter, right).
 
+accionBasadaEnEstado(right, inter).
+
+
+
 accionBasadaEnEstado(up, ar).
 
 
@@ -65,9 +69,9 @@ nth0(Filas,X,Y).
 *Entradas:Na
  */
 evaluarCaso :-
-    datoMovimiento(X), datoPosicion(Y), 
+    datoMovimiento(X), datoPosicion(Y), write(X), write(Y),
     accionBasadaEnEstado(X, Y).
-
+    
 /**
 *Funcion encargada de evaluar si ya se llego al punto de gane 
 *Entradas:Na
@@ -81,8 +85,8 @@ evaluargane:-
  */
 optenerElmentoEnPosicion(Filas,Columnas,Movimiento):-
     globalMatriz(M),
-    nth0(Columnas,M,X),
-    nth0(Filas,X,Y),
+    nth0(Filas,M,X),
+    nth0(Columnas,X,Y),
     retractall(datoPosicion(_)),
     retractall(datoMovimiento(_)),
 
