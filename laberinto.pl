@@ -27,15 +27,15 @@ accionBasadaEnEstado(down, ab).
 accionBasadaEnEstado(left, at).
 
 
-obtenerMatriz:-
+obtenerMatriz(X):-
     globalMatriz(X).
 /**
 *Funcion de leer 
 *Entrada: Una variable
  */
 %Funcion encargada de leer archivos de texto.
-readFile_Caller(Lines):-
-    open('C:/Users/Usuario/Desktop/pry03/PRY3_Lenguajes_2022/myFile.txt', read, Str),
+readFile_Caller(Dirrecion):-
+    open('D:/trabajis/Lenguajes/proyecto3/myFile.txt', read, Str),
     read_file(Str,Lines),
     close(Str),
     asserta(globalMatriz(Lines)).
