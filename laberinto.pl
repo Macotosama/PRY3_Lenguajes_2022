@@ -89,5 +89,52 @@ optenerElmentoEnPosicion(Filas,Columnas,Movimiento):-
     asserta(datoPosicion(Y)),
     asserta(datoMovimiento(Movimiento)).
 
-    
+/**
+*Función encargada de buscar el camino a la salida del mapa
+*/
+
+get_cell([R,C], Data,L):-
+    nth0(R,Data,L1),
+    nth0(C,L1,L).
+
+labyrinth(Map, Start, Finish):-
+    labyrinth(Map, Start, Finish,[], [],Solution),!,
+    reverse(Solution,S),
+    print(S).
+
+labyrinth(_, Finish, Finish,_, Out,Out). %Unification of solution
+labyrinth(Map, Start, Finish, Positions,Moves,Out) :-
+move(Move),
+update(Start, Move, NewState),
+\+ member(NewState, Positions),
+legal(NewState, Map),
+labyrinth(Map, NewState, Finish,[NewState|Positions],[Move|Moves],Out).
+
+legal( p(X,Y), Map) :-
+X >= 0, 7>X,
+Y >= 0, 7>Y,
+get_cell([X,Y], Map, Z),
+%write(Z),
+Z \= x.
+
+% UP
+update(  p(X, Y), up, p(X_new, Y)  ) :-
+    X_new is X - 1.
+
+% DOWN
+update(  p(X,Y), down, p(X_new, Y) ) :-
+    X_new is X + 1.
+
+% LEFT
+update(  p(X,Y), left, p(X, Y_new)  ) :-
+Y_new is Y - 1.
+
+% RIGHT
+update(  p(X,Y), right, p(X, Y_new)  ) :-
+Y_new is Y + 1.
+
+move(  up    ).
+move(  down  ).
+move(  left  ).
+move(  right ).    
 %%Se debe evaluar que el movimiento resultante y el que se deseo ingresar sean correspondientes.
