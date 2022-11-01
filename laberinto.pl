@@ -77,7 +77,7 @@ evaluargane:-
     estadoGanador(Y).
 /**
  * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
- * Entradas: Filas, columnas, una matriz, el comando de movimiento(debe concidir con los siguientes: ar, ad, ab, at, inter)
+ * Entradas: Filas, columnas, el comando de movimiento(debe concidir con los siguientes: ar, ad, ab, at, inter)
  */
 optenerElmentoEnPosicion(Filas,Columnas,Movimiento):-
     globalMatriz(M),
