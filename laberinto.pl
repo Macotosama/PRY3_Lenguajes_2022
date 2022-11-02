@@ -178,13 +178,16 @@ optenerElmentoEnPosicion(Filas,Columnas):-
     
 
 /**
-*Función encargada de buscar el camino a la salida del mapa
+*Función encargada de optener una celda en especifico
+* Entradas: Una pocicion, una estructura para recorrer y el elemento donde se guarda el resultado
 */
-
 get_cell([R,C], Data,L):-
     nth0(R,Data,L1),
     nth0(C,L1,L).
-
+/**
+* Función encargada de encontrar un camino con solucion en el tablero
+* Entradas: Una pocicion, una estructura para recorrer y el elemento donde se guarda el resultado
+*/
 labyrinth(Map, Start, Finish):-
     labyrinth(Map, Start, Finish,[], [],Solution),!,
     reverse(Solution,S),
