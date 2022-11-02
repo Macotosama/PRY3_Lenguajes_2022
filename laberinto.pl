@@ -24,30 +24,47 @@ accionBasadaEnEstado(left, at).*/
 
 
 
-accionBasadaEnEstado(ad, ad).
-accionBasadaEnEstado(ad, inter, up).
+accionBasadaEnEstado(ad, ad, right).
+accionBasadaEnEstado(ad, inter, right).
+accionBasadaEnEstado(ad, f, right).
 
-accionBasadaEnEstado(ab, ab).
-accionBasadaEnEstado(ab, inter, ).
+accionBasadaEnEstado(ab, ab, down).
+accionBasadaEnEstado(ab, inter, down).
+accionBasadaEnEstado(ab, f, down).
 
-accionBasadaEnEstado(ar, ar).
-accionBasadaEnEstado(ar, inter).
+accionBasadaEnEstado(ar, ar, up).
+accionBasadaEnEstado(ar, inter, up).
+accionBasadaEnEstado(ar, f, up).
 
-accionBasadaEnEstado(at, inter).
-accionBasadaEnEstado(at, at).
+accionBasadaEnEstado(at, inter, left).
+accionBasadaEnEstado(at, at, left).
+accionBasadaEnEstado(at, f, left).
 
-accionBasadaEnEstado(inter, inter).
-accionBasadaEnEstado(inter, at).
-accionBasadaEnEstado(inter, ab).
-accionBasadaEnEstado(inter, ar).
-accionBasadaEnEstado(inter, ad).
-accionBasadaEnEstado(inter, f).
+accionBasadaEnEstado(inter, inter, right).
+accionBasadaEnEstado(inter, inter, left).
+accionBasadaEnEstado(inter, inter, up).
+accionBasadaEnEstado(inter, inter, down).
 
-accionBasadaEnEstado(i, inter).
-accionBasadaEnEstado(i, at).
-accionBasadaEnEstado(i, ab).
-accionBasadaEnEstado(i, ar).
-accionBasadaEnEstado(i, ad).
+accionBasadaEnEstado(inter, at, left).
+accionBasadaEnEstado(inter, ab, down).
+accionBasadaEnEstado(inter, ar, up).
+accionBasadaEnEstado(inter, ad, right).
+
+accionBasadaEnEstado(inter, f, right).
+accionBasadaEnEstado(inter, f, left).
+accionBasadaEnEstado(inter, f, up).
+accionBasadaEnEstado(inter, f, down).
+
+accionBasadaEnEstado(i, inter, right).
+accionBasadaEnEstado(i, inter, left).
+accionBasadaEnEstado(i, inter, up).
+accionBasadaEnEstado(i, inter, down).
+
+
+accionBasadaEnEstado(i, at, left).
+accionBasadaEnEstado(i, ab, down).
+accionBasadaEnEstado(i, ar, up).
+accionBasadaEnEstado(i, ad, right).
 
 obtenerMatriz(X):-
     globalMatriz(X).
@@ -149,11 +166,12 @@ buscarEnColumnas(_,_,[]).
 *Entradas:Na
  */
 evaluarCaso :-
-    %datoMovimiento(X), datoPosicion(Y), write(X), write(Y),
-    datoActual(X), datoPosicion(Y),
-    accionBasadaEnEstado(X, Y),
+    #datoMovimiento(X), datoPosicion(Y), write(X), write(Y),
+    datoActual(X), datoPosicion(Y), datoMovimiento(P),
+    accionBasadaEnEstado(X, Y, P),
     retractall(datoActual(_)),
     asserta(datoActual(Y)),
+    retractall(datoMovimiento(_)),
     retractall(datoPosicion(_)).
 
 /**
@@ -167,13 +185,13 @@ evaluargane:-
  * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
  * Entradas: Filas, columnas, el comando de movimiento(debe concidir con los siguientes: ar, ad, ab, at, inter)
  */
-optenerElmentoEnPosicion(Filas,Columnas):-
+optenerElmentoEnPosicion(Filas,Columnas,Movimiento):-
     globalMatriz(M),
     nth0(Filas,M,X),
     nth0(Columnas,X,Y),
     retractall(datoPosicion(_)),
-    
-
+    retractall(datoMovimiento(_)),
+    asserta(datoMovimiento(Movimiento))
     asserta(datoPosicion(Y)).
     
 
