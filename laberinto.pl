@@ -45,10 +45,28 @@ accionBasadaEnEstado(inter, inter, left).
 accionBasadaEnEstado(inter, inter, up).
 accionBasadaEnEstado(inter, inter, down).
 
+accionBasadaEnEstado(inter, at, right).
 accionBasadaEnEstado(inter, at, left).
+accionBasadaEnEstado(inter, at, up).
+accionBasadaEnEstado(inter, at, down).
+
+
+accionBasadaEnEstado(inter, ab, right).
+accionBasadaEnEstado(inter, ab, left).
+accionBasadaEnEstado(inter, ab, up).
 accionBasadaEnEstado(inter, ab, down).
+
+
+accionBasadaEnEstado(inter, ar, right).
+accionBasadaEnEstado(inter, ar, left).
 accionBasadaEnEstado(inter, ar, up).
+accionBasadaEnEstado(inter, ar, down).
+
+
 accionBasadaEnEstado(inter, ad, right).
+accionBasadaEnEstado(inter, ad, left).
+accionBasadaEnEstado(inter, ad, up).
+accionBasadaEnEstado(inter, ad, down).
 
 accionBasadaEnEstado(inter, f, right).
 accionBasadaEnEstado(inter, f, left).
