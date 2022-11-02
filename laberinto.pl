@@ -57,8 +57,8 @@ obtenerMatriz(X):-
  */
 %Funcion encargada de leer archivos de texto.
 readFile_Caller(Dirrecion):-
-    %open('D:/trabajis/Lenguajes/proyecto3/myFile.txt', read, Str),
-    open('C:/Users/Usuario/Desktop/pry03/PRY3_Lenguajes_2022/myFile.txt', read, Str),
+    open('D:/trabajis/Lenguajes/proyecto3/myFile.txt', read, Str),
+    %open('C:/Users/Usuario/Desktop/pry03/PRY3_Lenguajes_2022/myFile.txt', read, Str),
     read_file(Str,Lines, _),
     close(Str),
     asserta(globalMatriz(Lines)), buscarInicio.
