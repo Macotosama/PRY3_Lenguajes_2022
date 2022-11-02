@@ -25,10 +25,10 @@ accionBasadaEnEstado(left, at).*/
 
 
 accionBasadaEnEstado(ad, ad).
-accionBasadaEnEstado(ad, inter).
+accionBasadaEnEstado(ad, inter, up).
 
 accionBasadaEnEstado(ab, ab).
-accionBasadaEnEstado(ab, inter).
+accionBasadaEnEstado(ab, inter, ).
 
 accionBasadaEnEstado(ar, ar).
 accionBasadaEnEstado(ar, inter).
