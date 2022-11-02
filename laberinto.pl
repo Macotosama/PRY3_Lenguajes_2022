@@ -27,27 +27,27 @@ accionBasadaEnEstado(left, at).*/
 accionBasadaEnEstado(right, right).
 accionBasadaEnEstado(right, inter).
 
-accionBasadaEnEstado(down, down).
-accionBasadaEnEstado(down, inter).
+accionBasadaEnEstado(ab, ab).
+accionBasadaEnEstado(ab, inter).
 
-accionBasadaEnEstado(up, up).
-accionBasadaEnEstado(up, inter).
+accionBasadaEnEstado(ar, ar).
+accionBasadaEnEstado(ar, inter).
 
-accionBasadaEnEstado(left, inter).
-accionBasadaEnEstado(left, left).
+accionBasadaEnEstado(at, inter).
+accionBasadaEnEstado(at, at).
 
 accionBasadaEnEstado(inter, inter).
-accionBasadaEnEstado(inter, left).
-accionBasadaEnEstado(inter, down).
-accionBasadaEnEstado(inter, up).
-accionBasadaEnEstado(inter, right).
+accionBasadaEnEstado(inter, at).
+accionBasadaEnEstado(inter, ab).
+accionBasadaEnEstado(inter, ar).
+accionBasadaEnEstado(inter, ad).
 accionBasadaEnEstado(inter, f).
 
 accionBasadaEnEstado(i, inter).
-accionBasadaEnEstado(i, left).
-accionBasadaEnEstado(i, down).
-accionBasadaEnEstado(i, up).
-accionBasadaEnEstado(i, right).
+accionBasadaEnEstado(i, at).
+accionBasadaEnEstado(i, ab).
+accionBasadaEnEstado(i, ar).
+accionBasadaEnEstado(i, ad).
 
 obtenerMatriz(X):-
     globalMatriz(X).
