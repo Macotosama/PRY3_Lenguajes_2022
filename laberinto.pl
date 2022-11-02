@@ -166,7 +166,7 @@ buscarEnColumnas(_,_,[]).
 *Entradas:Na
  */
 evaluarCaso :-
-    #datoMovimiento(X), datoPosicion(Y), write(X), write(Y),
+    %datoMovimiento(X), datoPosicion(Y), write(X), write(Y),
     datoActual(X), datoPosicion(Y), datoMovimiento(P),
     accionBasadaEnEstado(X, Y, P),
     retractall(datoActual(_)),
@@ -191,7 +191,7 @@ optenerElmentoEnPosicion(Filas,Columnas,Movimiento):-
     nth0(Columnas,X,Y),
     retractall(datoPosicion(_)),
     retractall(datoMovimiento(_)),
-    asserta(datoMovimiento(Movimiento))
+    asserta(datoMovimiento(Movimiento)),
     asserta(datoPosicion(Y)).
     
 
