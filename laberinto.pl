@@ -24,8 +24,8 @@ accionBasadaEnEstado(left, at).*/
 
 
 
-accionBasadaEnEstado(right, right).
-accionBasadaEnEstado(right, inter).
+accionBasadaEnEstado(ad, ad).
+accionBasadaEnEstado(ad, inter).
 
 accionBasadaEnEstado(ab, ab).
 accionBasadaEnEstado(ab, inter).
