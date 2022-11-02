@@ -197,7 +197,7 @@ evaluarCaso :-
 *Entradas:Na
 */
 evaluargane:-
-    datoPosicion(Y),
+    datoActual(Y),
     estadoGanador(Y).
 /**
  * Funcion encargada de encontrar el elemento que se esta solicitado en una lista
