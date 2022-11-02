@@ -224,7 +224,9 @@ get_cell([R,C], Data,L):-
 * Función encargada de encontrar un camino con solucion en el tablero
 * Entradas: Una pocicion, una estructura para recorrer y el elemento donde se guarda el resultado
 */
-labyrinth(Map, Start, Finish):-
+labyrinth(Start, Finish):-
+    globalMatriz(Map),
+    
     labyrinth(Map, Start, Finish,[], [],Solution),!,
     reverse(Solution,S),
     print(S).
@@ -265,3 +267,6 @@ move(  down  ).
 move(  left  ).
 move(  right ).    
 %%Se debe evaluar que el movimiento resultante y el que se deseo ingresar sean correspondientes.
+
+
+%labyrinth([[e,e,w,w,w,w,w],[w,e,w,e,w,e,w],[w,e,w,e,w,e,w],[w,e,e,e,w,e,w],[w,e,w,e,w,e,w],[w,e,e,e,e,e,w],[e,w,w,w,w,e,e]], p(1,2), p(6,6), _)
